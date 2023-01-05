@@ -1,31 +1,38 @@
 import './styles/styles.css';
 
-const plusBtn = document.querySelector('.plus');
-const minusBtn = document.querySelector('.minus');
-const textContainer = document.querySelector('span');
+const addBtn = document.querySelector('.btn');
+const input = document.querySelector('.task');
+const displayValue = document.querySelector('.result');
+let count = 0;
 
-let data = 0;
+function displayValues() {
+  const result = input.value;
+  if (result === '') {
+    alert('Please Add a task');
+  } else {
+    count += 1;
+    displayValue.style.visibility = 'initial';
+    const todoItem = document.createElement('div');
+    todoItem.classList.add('displayItem');
+    todoItem.innerHTML = `<input class='radio' type='radio'/> ${result} <i class='fa-solid icon fa-trash-can'></i>`;
+    displayValue.appendChild(todoItem);
 
-function add() {
-  const value = Math.floor(Math.random() * 1000);
-  data = Math.max(data, value);
-  return value;
+    todoItem.querySelector('.radio').addEventListener('click', () => {
+      todoItem.style.textDecoration = 'line-through';
+    });
+
+    todoItem.querySelector('.icon').addEventListener('click', () => {
+      todoItem.remove();
+      count -= 1;
+      if (count < 1) {
+        displayValue.style.visibility = 'hidden';
+      }
+    });
+
+    input.value = '';
+  }
 }
 
-function sub() {
-  const value = Math.floor(Math.random() * 1000);
-  data = Math.min(data, value);
-  return value;
-}
-
-function displayValue(now, text = data) {
-  textContainer.innerHTML = `${text} (${now})`;
-}
-
-plusBtn.addEventListener('click', () => {
-  displayValue(add());
-});
-
-minusBtn.addEventListener('click', () => {
-  displayValue(sub());
+addBtn.addEventListener('click', () => {
+  displayValues();
 });

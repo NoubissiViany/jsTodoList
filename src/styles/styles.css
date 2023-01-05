@@ -1,27 +1,82 @@
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+* {
+  
+}
+
+.page-content {
+  margin-top: 7%;
+}
+
+.container {
+  max-width: 350px;
+  margin: auto;
+  background-color: green;
+  padding: 20px 25px 30px;
+  border-radius: 5px;
+}
+
+.heading {
+  text-align: center;
+  font-size: x-large;
+  font-style: italic;
+  color: white;
+  font-weight: bold;
 }
 
 .main {
   display: flex;
   gap: 10px;
-  align-items: center;
+  justify-content: center;
 }
 
 button {
   cursor: pointer;
-  height: 40px;
-  width: 40px;
-  border-radius: 40px;
+  border-radius: 5px;
+  padding: 12px 15px;
   border: none;
-  background-color: sandybrown;
-}
-
-span {
-  font-size: 20px;
+  background-color: steelblue;
+  color: white;
   font-weight: bold;
+  font-size: 15px;
 }
 
+.task {
+  border: 1px solid gainsboro;
+  padding: 20px 12px;
+  border-radius: 5px;
+  width: 64%;
+  font-size: 15px;
+}
+
+.result {
+  margin-top: 25px;
+  background-color: gainsboro;
+  width: 85%;
+  padding: 20px 10px;
+  margin-left: 5%;
+  border-radius: 5px;
+  visibility: hidden;
+}
+
+.displayItem {
+  font-weight: bold;
+  padding: 15px;
+}
+
+.radio {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.icon {
+  float: right;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: red;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}

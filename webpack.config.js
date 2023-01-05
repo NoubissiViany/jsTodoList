@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
-    static: './dist',
+    static: './dist'
   },
   module: {
     rules: [
@@ -21,17 +21,22 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      }
     ]
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
       clean: true,
-      title: 'Project',
-      template: './src/index.html',
+      title: 'Todo List',
+      template: './src/index.html'
     }),
     new WebpackManifestPlugin(),
     new MiniCssExtractPlugin(),
-    new ESLintPlugin({ })
-  ],
+    new ESLintPlugin({ fix: true })
+  ]
 }
